@@ -2,6 +2,7 @@
 #define FONTRESIZABLELINEEDIT_H
 
 #include <QLineEdit>
+#include <QToolButton>
 
 class FontResizableLineEdit : public QLineEdit
 {

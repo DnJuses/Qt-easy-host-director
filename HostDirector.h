@@ -2,6 +2,9 @@
 #define HOSTDIRECTOR_H
 
 #include <QMainWindow>
+#include "HostDirectorErrorHandler.h"
+#include "HostDirectorTestModule.h"
+#include "ErrorTypes.h"
 
 namespace Ui {
 class HostDirector;
@@ -15,8 +18,15 @@ public:
     explicit HostDirector(QWidget *parent = nullptr);
     ~HostDirector();
 
+signals:
+    void handleError(ErrorTypes::ErrorValue);
 private:
     Ui::HostDirector *ui;
+    HostDirectorTestModule *tester;
+    HostDirectorErrorHandler *errorHandler;
+private slots:
+    void browseFile();
+    void startAction();
 };
 
 #endif // HOSTDIRECTOR_H

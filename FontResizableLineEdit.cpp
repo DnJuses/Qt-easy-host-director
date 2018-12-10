@@ -1,7 +1,4 @@
 #include "FontResizableLineEdit.h"
-#include <QResizeEvent>
-#include <QDebug>
-
 
 FontResizableLineEdit::FontResizableLineEdit(QWidget *parent)
     : QLineEdit(parent)

@@ -27,11 +27,16 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         HostDirector.cpp \
-    FontResizableLineEdit.cpp
+    FontResizableLineEdit.cpp \
+    HostDirectorTestModule.cpp \
+    HostDirectorErrorHandler.cpp
 
 HEADERS += \
         HostDirector.h \
-    FontResizableLineEdit.h
+    FontResizableLineEdit.h \
+    ErrorTypes.h \
+    HostDirectorTestModule.h \
+    HostDirectorErrorHandler.h
 
 FORMS += \
         HostDirector.ui
