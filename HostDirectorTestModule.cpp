@@ -10,9 +10,9 @@ HostDirectorTestModule::HostDirectorTestModule(QObject *parent) : QObject(parent
 
 bool HostDirectorTestModule::testPath(const QString &path)
 {
-    if(path.length() <= 0 || path.endsWith(".hdcf") || path.endsWith(".txt"))
+    if(path.length() <= 0 || (!path.endsWith(".hdcf") && !path.endsWith(".txt")))
     {
-        emit handleError(Error::HOSTS_ACCESS_DENIED);
+        emit handleError(Error::WRONG_CONF_FILE_PATH);
         return false;
     }
     return true;

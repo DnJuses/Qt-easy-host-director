@@ -3,6 +3,7 @@
 
 #include "ErrorTypes.h"
 #include <QObject>
+#include <QMessageBox>
 
 class HostDirectorErrorHandler : public QObject
 {
@@ -11,9 +12,6 @@ public:
     explicit HostDirectorErrorHandler(QObject *parent = nullptr);
 public slots:
     void dispatchError(ErrorTypes::ErrorValue errorCode);
-signals:
-
-public slots:
 };
 
 #endif // HOSTDIRECTORERRORHANDLER_H
