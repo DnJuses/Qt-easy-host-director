@@ -8,7 +8,8 @@ namespace ErrorTypes
     enum class ErrorValue: unsigned short
     {
         WRONG_CONF_FILE_PATH = 2000,
-        HOSTS_ACCESS_DENIED = 2001
+        HOSTS_ACCESS_DENIED = 2001,
+        CONFIGURATION_ACCESS_DENIED = 2002
     };
 }
 

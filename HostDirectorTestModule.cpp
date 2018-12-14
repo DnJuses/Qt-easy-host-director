@@ -18,6 +18,19 @@ bool HostDirectorTestModule::testPath(const QString &path)
     return true;
 }
 
+bool HostDirectorTestModule::testPathOpenability(const QString &path)
+{
+    if(!testPath(path))
+        return false;
+    QFile file(path);
+    if(!file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        emit handleError(Error::CONFIGURATION_ACCESS_DENIED);
+        return false;
+    }
+    return true;
+}
+
 bool HostDirectorTestModule::testHostsOpenability()
 {
     QFile hostsFile(HOSTS_PATH);
@@ -27,5 +40,5 @@ bool HostDirectorTestModule::testHostsOpenability()
         return false;
     }
     hostsFile.close();
-    return false;
+    return true;
 }

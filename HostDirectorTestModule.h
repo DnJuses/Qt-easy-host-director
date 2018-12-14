@@ -6,9 +6,11 @@
 class HostDirectorTestModule : public QObject
 {
     Q_OBJECT
+private:
+    bool testPath(const QString &path);
 public:
     explicit HostDirectorTestModule(QObject *parent = nullptr);
-    bool testPath(const QString &path);
+    bool testPathOpenability(const QString &path);
     bool testHostsOpenability();
 signals:
     void handleError(ErrorTypes::ErrorValue);

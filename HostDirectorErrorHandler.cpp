@@ -18,7 +18,10 @@ void HostDirectorErrorHandler::dispatchError(ErrorTypes::ErrorValue errorCode)
             errorString = tr("Given file is not a configuration file.");
         break;
         case Error::HOSTS_ACCESS_DENIED:
-            errorString = tr("Cannot access to 'hosts' file. Maybe it blocked by antivirus?");
+            errorString = tr("Cannot access to 'hosts' file. Maybe its blocked by antivirus?");
+        break;
+        case Error::CONFIGURATION_ACCESS_DENIED:
+            errorString = tr("Cannot access to configuration file.");
         break;
     }
     QMessageBox errorNote(tr("Error"), errorCodeStr, QMessageBox::Critical, 0, 0, 0);

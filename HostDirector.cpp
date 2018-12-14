@@ -2,7 +2,9 @@
 #include "ui_HostDirector.h"
 #include <QFileDialog>
 #include <QDebug>
+
 extern const QString HOSTS_PATH;
+static QFile HOSTS_FILE(HOSTS_PATH);
 
 HostDirector::HostDirector(QWidget *parent) :
     QMainWindow(parent),
@@ -21,6 +23,11 @@ HostDirector::~HostDirector()
     delete ui;
 }
 
+bool HostDirector::writeConfiguration(const QString &confPath)
+{
+    return true;
+}
+
 void HostDirector::browseFile()
 {
     ui->pathLine->setText(QFileDialog::getOpenFileName(nullptr, nullptr, nullptr, tr("Any (*.*);;Host director configuration file (*.hdcf);;Text file (*.txt)")));
@@ -28,8 +35,13 @@ void HostDirector::browseFile()
 
 void HostDirector::startAction()
 {
-    if(!tester->testPath(ui->pathLine->text())
+    const QString confPath = ui->pathLine->text();
+    if(!tester->testPathOpenability(confPath)
     || !tester->testHostsOpenability())
+    {
+        return;
+    }
+    if(!writeConfiguration(confPath))
     {
         return;
     }
