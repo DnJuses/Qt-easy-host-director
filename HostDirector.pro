@@ -29,17 +29,19 @@ SOURCES += \
         HostDirector.cpp \
         HostDirectorTestModule.cpp \
         HostDirectorErrorHandler.cpp \
-    HostDirectorFileWriter.cpp \
-    TimerLineEdit.cpp
+        HostDirectorFileWriter.cpp \
+        TimerLineEdit.cpp \
+        HostDirectorTrayMenu.cpp
 
 HEADERS += \
         HostDirector.h \
         ErrorTypes.h \
         HostDirectorTestModule.h \
         HostDirectorErrorHandler.h \
-    HostDirectorFileWriter.h \
-    HostDirectorConstants.h \
-    TimerLineEdit.h
+        HostDirectorFileWriter.h \
+        HostDirectorConstants.h \
+        TimerLineEdit.h \
+        HostDirectorTrayMenu.h
 
 FORMS += \
         HostDirector.ui

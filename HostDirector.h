@@ -2,13 +2,10 @@
 #define HOSTDIRECTOR_H
 
 #include <QMainWindow>
-#include <QFile>
-#include <QString>
+#include <QSystemTrayIcon>
+#include "HostDirectorTrayMenu.h"
 #include "HostDirectorFileWriter.h"
-#include "HostDirectorErrorHandler.h"
 #include "HostDirectorTestModule.h"
-#include "ErrorTypes.h"
-
 
 namespace Ui {
 class HostDirector;
@@ -22,9 +19,11 @@ public:
     ~HostDirector();
 private:
     Ui::HostDirector *ui;
+    HostDirectorTrayMenu *tray;
     HostDirectorTestModule *tester;
     HostDirectorFileWriter *fileWriter;
     void setWidgetsDisabled(bool active);
+    void closeEvent(QCloseEvent* event) override;
 private slots:
     void browseFile();
     void startAction();

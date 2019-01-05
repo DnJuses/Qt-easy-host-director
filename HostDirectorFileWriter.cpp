@@ -1,7 +1,6 @@
 #include "HostDirectorFileWriter.h"
 #include "HostDirectorErrorHandler.h"
 #include "HostDirectorConstants.h"
-#include <QDebug>
 #include <QDir>
 
 typedef ErrorTypes::ErrorValue Error;

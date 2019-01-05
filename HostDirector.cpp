@@ -1,13 +1,13 @@
-#include "HostDirectorConstants.h"
 #include "HostDirector.h"
-#include "HostDirectorFileWriter.h"
+#include "HostDirectorConstants.h"
 #include "ui_HostDirector.h"
+#include <QtEvents>
 #include <QFileDialog>
-#include <QDebug>
 
 HostDirector::HostDirector(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::HostDirector),
+    tray(new HostDirectorTrayMenu(this)),
     tester(new HostDirectorTestModule(this)),
     fileWriter(new HostDirectorFileWriter(this))
 {
@@ -25,6 +25,12 @@ HostDirector::~HostDirector()
 void HostDirector::setWidgetsDisabled(bool activity)
 {
     this->setDisabled(activity);
+}
+
+void HostDirector::closeEvent(QCloseEvent *event)
+{
+    this->hide();
+    event->ignore();
 }
 
 void HostDirector::browseFile()
