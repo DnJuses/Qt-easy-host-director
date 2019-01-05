@@ -1,21 +1,20 @@
+#include "HostDirectorConstants.h"
 #include "HostDirector.h"
+#include "HostDirectorFileWriter.h"
 #include "ui_HostDirector.h"
 #include <QFileDialog>
 #include <QDebug>
 
-extern const QString HOSTS_PATH;
-static QFile HOSTS_FILE(HOSTS_PATH);
-
 HostDirector::HostDirector(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::HostDirector)
+    ui(new Ui::HostDirector),
+    tester(new HostDirectorTestModule(this)),
+    fileWriter(new HostDirectorFileWriter(this))
 {
     ui->setupUi(this);
-    tester = new HostDirectorTestModule(this);
-    errorHandler = new HostDirectorErrorHandler(this);
-    QObject::connect(tester, &HostDirectorTestModule::handleError, errorHandler, &HostDirectorErrorHandler::dispatchError);
     QObject::connect(ui->startButton, &QPushButton::clicked, this, &HostDirector::startAction);
     QObject::connect(ui->browseButton, &QPushButton::clicked, this, &HostDirector::browseFile);
+    QObject::connect(ui->timerLine, &TimerLineEdit::timerStopped, this, &HostDirector::undoAction);
 }
 
 HostDirector::~HostDirector()
@@ -23,9 +22,9 @@ HostDirector::~HostDirector()
     delete ui;
 }
 
-bool HostDirector::writeConfiguration(const QString &confPath)
+void HostDirector::setWidgetsDisabled(bool activity)
 {
-    return true;
+    this->setDisabled(activity);
 }
 
 void HostDirector::browseFile()
@@ -41,8 +40,25 @@ void HostDirector::startAction()
     {
         return;
     }
-    if(!writeConfiguration(confPath))
+    const bool isPermanent = ui->act_permchange->isChecked();
+    if(isPermanent)
     {
+        fileWriter->writePermanentConfiguration(confPath);
         return;
     }
+    else
+    {
+        if(!fileWriter->writeConfiguration(confPath))
+        {
+            return;
+        }
+        ui->timerLine->startTimer(ui->intbox_hours->value(), ui->intbox_minutes->value(), ui->intbox_seconds->value());
+    }
+    this->setWidgetsDisabled(true);
+}
+
+void HostDirector::undoAction()
+{
+    fileWriter->eraseConfiguration();
+    this->setWidgetsDisabled(false);
 }

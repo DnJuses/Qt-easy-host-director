@@ -9,9 +9,9 @@ class HostDirectorErrorHandler : public QObject
 {
     Q_OBJECT
 public:
-    explicit HostDirectorErrorHandler(QObject *parent = nullptr);
-public slots:
-    void dispatchError(ErrorTypes::ErrorValue errorCode);
+    static void dispatchError(ErrorTypes::ErrorValue errorCode);
+private:
+    HostDirectorErrorHandler();
 };
 
 #endif // HOSTDIRECTORERRORHANDLER_H

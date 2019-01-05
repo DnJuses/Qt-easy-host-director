@@ -1,12 +1,6 @@
 #include "HostDirectorErrorHandler.h"
-#include <QDebug>
 
 typedef ErrorTypes::ErrorValue Error;
-
-
-HostDirectorErrorHandler::HostDirectorErrorHandler(QObject *parent) : QObject(parent)
-{
-}
 
 void HostDirectorErrorHandler::dispatchError(ErrorTypes::ErrorValue errorCode)
 {
@@ -22,6 +16,15 @@ void HostDirectorErrorHandler::dispatchError(ErrorTypes::ErrorValue errorCode)
         break;
         case Error::CONFIGURATION_ACCESS_DENIED:
             errorString = tr("Cannot access to configuration file.");
+        break;
+        case Error::HOSTS_COPY_FAILED:
+            errorString = tr("Unable to copy the 'hosts' file.");
+        break;
+        case Error::HOSTS_CONF_ERASE_FAILED:
+            errorString = tr("Unable to erase the configuration from 'hosts' file.");
+        break;
+        case Error::HOSTS_WRITE_FAILED:
+            errorString = tr("Unable to write configuration before starting");
         break;
     }
     QMessageBox errorNote(tr("Error"), errorCodeStr, QMessageBox::Critical, 0, 0, 0);

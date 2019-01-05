@@ -1,5 +1,6 @@
 #include "HostDirector.h"
 #include <QApplication>
+#include "HostDirectorFileWriter.h"
 #include <QtCore>
 #include <QDebug>
 
@@ -22,6 +23,7 @@ int main(int argc, char *argv[])
          app.installTranslator(&languageTranslator);
          app.installTranslator(&qtTranslator);
     }
+    HostDirectorFileWriter s;
     HostDirector w;
     w.show();
     return app.exec();

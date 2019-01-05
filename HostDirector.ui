@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>518</width>
-    <height>315</height>
+    <width>404</width>
+    <height>292</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -36,7 +36,7 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="FontResizableLineEdit" name="timerLine">
+     <widget class="TimerLineEdit" name="timerLine">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
         <horstretch>0</horstretch>
@@ -285,7 +285,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>518</width>
+     <width>404</width>
      <height>20</height>
     </rect>
    </property>
@@ -309,9 +309,9 @@
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
   <customwidget>
-   <class>FontResizableLineEdit</class>
+   <class>TimerLineEdit</class>
    <extends>QLineEdit</extends>
-   <header>FontResizableLineEdit.h</header>
+   <header>TimerLineEdit.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

@@ -1,18 +1,25 @@
+#include "HostDirectorConstants.h"
+#include "HostDirectorErrorHandler.h"
 #include "HostDirectorTestModule.h"
 #include <QFile>
 
 typedef ErrorTypes::ErrorValue Error;
-extern const QString HOSTS_PATH = QString::fromLocal8Bit(qgetenv("windir")) + QString("\\System32\\drivers\\etc\\hosts");
 
 HostDirectorTestModule::HostDirectorTestModule(QObject *parent) : QObject(parent)
 {
+
+}
+
+HostDirectorTestModule::~HostDirectorTestModule()
+{
+    this->deleteLater();
 }
 
 bool HostDirectorTestModule::testPath(const QString &path)
 {
     if(path.length() <= 0 || (!path.endsWith(".hdcf") && !path.endsWith(".txt")))
     {
-        emit handleError(Error::WRONG_CONF_FILE_PATH);
+        HostDirectorErrorHandler::dispatchError(Error::WRONG_CONF_FILE_PATH);
         return false;
     }
     return true;
@@ -25,7 +32,7 @@ bool HostDirectorTestModule::testPathOpenability(const QString &path)
     QFile file(path);
     if(!file.open(QIODevice::ReadOnly | QIODevice::Text))
     {
-        emit handleError(Error::CONFIGURATION_ACCESS_DENIED);
+        HostDirectorErrorHandler::dispatchError(Error::CONFIGURATION_ACCESS_DENIED);
         return false;
     }
     return true;
@@ -33,10 +40,10 @@ bool HostDirectorTestModule::testPathOpenability(const QString &path)
 
 bool HostDirectorTestModule::testHostsOpenability()
 {
-    QFile hostsFile(HOSTS_PATH);
+    QFile hostsFile(HostConstant::HOSTS_PATH);
     if(!hostsFile.open(QIODevice::ReadWrite | QIODevice::Text))
     {
-        emit handleError(Error::HOSTS_ACCESS_DENIED);
+        HostDirectorErrorHandler::dispatchError(Error::HOSTS_ACCESS_DENIED);
         return false;
     }
     hostsFile.close();
