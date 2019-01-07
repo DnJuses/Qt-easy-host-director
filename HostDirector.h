@@ -22,7 +22,6 @@ private:
     HostDirectorTrayMenu *tray;
     HostDirectorTestModule *tester;
     HostDirectorFileWriter *fileWriter;
-    void setWidgetsDisabled(bool active);
     void closeEvent(QCloseEvent* event) override;
 private slots:
     void browseFile();

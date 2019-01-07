@@ -22,6 +22,7 @@ private:
     HostDirectorFileWriter *fileWriter;
     void setDisplayedTimerValues(quint8 hours, quint8 minutes, quint8 seconds);
 signals:
+    void timerStarted();
     void timerStopped();
 protected:
     void resizeEvent(QResizeEvent *event) override;

@@ -15,18 +15,13 @@ HostDirector::HostDirector(QWidget *parent) :
     QObject::connect(ui->startButton, &QPushButton::clicked, this, &HostDirector::startAction);
     QObject::connect(ui->browseButton, &QPushButton::clicked, this, &HostDirector::browseFile);
     QObject::connect(ui->timerLine, &TimerLineEdit::timerStopped, this, &HostDirector::undoAction);
+    ui->startButton->stackUnder(this);
 }
 
 HostDirector::~HostDirector()
 {
     delete ui;
 }
-
-void HostDirector::setWidgetsDisabled(bool activity)
-{
-    this->setDisabled(activity);
-}
-
 void HostDirector::closeEvent(QCloseEvent *event)
 {
     this->hide();
@@ -58,13 +53,13 @@ void HostDirector::startAction()
         {
             return;
         }
+        tray->showMessage(tr("Host Director"), tr("Timer started"), QSystemTrayIcon::Information);
         ui->timerLine->startTimer(ui->intbox_hours->value(), ui->intbox_minutes->value(), ui->intbox_seconds->value());
     }
-    this->setWidgetsDisabled(true);
 }
 
 void HostDirector::undoAction()
 {
+    tray->showMessage(tr("Host Director"), tr("Timer expired"), QSystemTrayIcon::Information);
     fileWriter->eraseConfiguration();
-    this->setWidgetsDisabled(false);
 }

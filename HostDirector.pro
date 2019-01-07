@@ -31,7 +31,11 @@ SOURCES += \
         HostDirectorErrorHandler.cpp \
         HostDirectorFileWriter.cpp \
         TimerLineEdit.cpp \
-        HostDirectorTrayMenu.cpp
+        HostDirectorTrayMenu.cpp \
+        passforms/AbstractPasswordForm.cpp \
+        passforms/PasswordConfirmationForm.cpp \
+    passforms/PasswordRecreationForm.cpp \
+    passforms/PasswordCreationForm.cpp
 
 HEADERS += \
         HostDirector.h \
@@ -41,10 +45,17 @@ HEADERS += \
         HostDirectorFileWriter.h \
         HostDirectorConstants.h \
         TimerLineEdit.h \
-        HostDirectorTrayMenu.h
+        HostDirectorTrayMenu.h \
+        passforms/AbstractPasswordForm.h \
+        passforms/PasswordConfirmationForm.h \
+    passforms/PasswordRecreationForm.h \
+    passforms/PasswordCreationForm.h
 
 FORMS += \
-        HostDirector.ui
+        HostDirector.ui \
+        passforms/PasswordConfirmationForm.ui \
+    passforms/PasswordRecreationForm.ui \
+    passforms/PasswordCreationForm.ui
 
 DISTFILES += \
         manifests/adminmanifest.rc \

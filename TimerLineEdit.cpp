@@ -26,6 +26,7 @@ void TimerLineEdit::startTimer(quint8 h, quint8 m, quint8 s)
     seconds = s;
     this->setDisplayedTimerValues(hours, minutes, seconds);
     QTimer::singleShot(TIMER_INTERVAL, this, &TimerLineEdit::updateTimer);
+    emit timerStarted();
 }
 
 void TimerLineEdit::stopTimer()
