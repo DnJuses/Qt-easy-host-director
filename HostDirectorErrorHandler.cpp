@@ -26,6 +26,9 @@ void HostDirectorErrorHandler::dispatchError(ErrorTypes::ErrorValue errorCode)
         case Error::HOSTS_WRITE_FAILED:
             errorString = tr("Unable to write configuration before starting");
         break;
+        case Error::APP_ALREADY_RUNNING:
+            errorString = tr("Application is already running! Only one active instance is allowed!");
+        break;
     }
     QMessageBox errorNote(tr("Error"), errorCodeStr, QMessageBox::Critical, 0, 0, 0);
     errorNote.setDetailedText(errorString);

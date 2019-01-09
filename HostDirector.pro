@@ -35,7 +35,8 @@ SOURCES += \
         passforms/AbstractPasswordForm.cpp \
         passforms/PasswordConfirmationForm.cpp \
     passforms/PasswordRecreationForm.cpp \
-    passforms/PasswordCreationForm.cpp
+    passforms/PasswordCreationForm.cpp \
+    passforms/PasswordNotificationTemplates.cpp
 
 HEADERS += \
         HostDirector.h \
@@ -49,7 +50,9 @@ HEADERS += \
         passforms/AbstractPasswordForm.h \
         passforms/PasswordConfirmationForm.h \
     passforms/PasswordRecreationForm.h \
-    passforms/PasswordCreationForm.h
+    passforms/PasswordCreationForm.h \
+    passforms/PasswordNotificationTemplates.h \
+    passforms/PasswordTemplateTypes.h
 
 FORMS += \
         HostDirector.ui \

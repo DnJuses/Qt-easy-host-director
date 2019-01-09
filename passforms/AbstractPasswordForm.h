@@ -1,19 +1,27 @@
 #ifndef ABSTRACTPASSWORDFORM_H
 #define ABSTRACTPASSWORDFORM_H
+#include "HostDirectorConstants.h"
+#include "PasswordNotificationTemplates.h"
 #include <QDialog>
-#include <QAbstractButton>
+
+
 class AbstractPasswordForm : public QDialog
 {
     Q_OBJECT
+public:
+    static bool isPasswordExists();
 protected:
     AbstractPasswordForm(QWidget *parent = nullptr);
     virtual ~AbstractPasswordForm();
     virtual bool checkPassValidity() = 0;
-    QString passEncrypt(QString &message);
-    QString passDecrypt(QString &message);
+    void setPassword(QString &message);
+    QString getPassword();
 protected slots:
     virtual void showHash(bool mode) = 0;
     virtual void confirm() = 0;
+private:
+    QString encryptPassword(QString &message);
+    QString decryptPassword(QString &message);
 };
 
 #endif // ABSTRACTPASSWORDFORM_H

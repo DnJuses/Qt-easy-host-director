@@ -1,3 +1,6 @@
+#include "passforms/PasswordRecreationForm.h"
+#include "passforms/PasswordCreationForm.h"
+#include "passforms/PasswordConfirmationForm.h"
 #include "HostDirectorTrayMenu.h"
 #include <QCommonStyle>
 #include <QApplication>
@@ -44,11 +47,21 @@ HostDirectorTrayMenu::HostDirectorTrayMenu(QWidget *parent) :
 HostDirectorTrayMenu::~HostDirectorTrayMenu()
 {
     delete actMenu;
+    this->deleteLater();
 }
 
 void HostDirectorTrayMenu::recreatePassword()
 {
-    return;
+    if(!AbstractPasswordForm::isPasswordExists())
+    {
+        PasswordCreationForm creationForm;
+        creationForm.exec();
+    }
+    else
+    {
+        PasswordRecreationForm recreationForm;
+        recreationForm.exec();
+    }
 }
 
 void HostDirectorTrayMenu::iconTriggered(QSystemTrayIcon::ActivationReason reason)

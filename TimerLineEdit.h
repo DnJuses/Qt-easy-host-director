@@ -2,6 +2,7 @@
 #define FONTRESIZABLELINEEDIT_H
 
 #include <QLineEdit>
+#include <QTimer>
 #include "HostDirectorFileWriter.h"
 
 class TimerLineEdit : public QLineEdit
@@ -19,6 +20,7 @@ private:
     quint8 hours;
     quint8 minutes;
     quint8 seconds;
+    QTimer *timer;
     HostDirectorFileWriter *fileWriter;
     void setDisplayedTimerValues(quint8 hours, quint8 minutes, quint8 seconds);
 signals:

@@ -1,5 +1,6 @@
 #include "HostDirector.h"
 #include "HostDirectorConstants.h"
+#include "passforms/PasswordConfirmationForm.h"
 #include "ui_HostDirector.h"
 #include <QtEvents>
 #include <QFileDialog>
@@ -12,10 +13,11 @@ HostDirector::HostDirector(QWidget *parent) :
     fileWriter(new HostDirectorFileWriter(this))
 {
     ui->setupUi(this);
+    ui->stopButton->hide();
     QObject::connect(ui->startButton, &QPushButton::clicked, this, &HostDirector::startAction);
+    QObject::connect(ui->stopButton, &QPushButton::clicked, this, &HostDirector::passwordCheck);
     QObject::connect(ui->browseButton, &QPushButton::clicked, this, &HostDirector::browseFile);
     QObject::connect(ui->timerLine, &TimerLineEdit::timerStopped, this, &HostDirector::undoAction);
-    ui->startButton->stackUnder(this);
 }
 
 HostDirector::~HostDirector()
@@ -55,6 +57,8 @@ void HostDirector::startAction()
         }
         tray->showMessage(tr("Host Director"), tr("Timer started"), QSystemTrayIcon::Information);
         ui->timerLine->startTimer(ui->intbox_hours->value(), ui->intbox_minutes->value(), ui->intbox_seconds->value());
+        ui->startButton->hide();
+        ui->stopButton->show();
     }
 }
 
@@ -62,4 +66,20 @@ void HostDirector::undoAction()
 {
     tray->showMessage(tr("Host Director"), tr("Timer expired"), QSystemTrayIcon::Information);
     fileWriter->eraseConfiguration();
+    ui->startButton->show();
+    ui->stopButton->hide();
+}
+
+void HostDirector::passwordCheck()
+{
+    if(AbstractPasswordForm::isPasswordExists())
+    {
+        PasswordConfirmationForm confirmForm;
+        confirmForm.exec();
+        if(!confirmForm.isCorrect())
+        {
+            return;
+        }
+    }
+    ui->timerLine->stopTimer();
 }

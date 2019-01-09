@@ -58,6 +58,10 @@ void HostDirectorFileWriter::writePermanentConfiguration(const QString &confPath
 
 bool HostDirectorFileWriter::eraseConfiguration()
 {
+    if(isCopyExists() && !hostsCopy.isOpen())
+    {
+        hostsCopy.open(QIODevice::ReadOnly | QIODevice::ExistingOnly);
+    }
     QFile hostsFile(HostConstant::HOSTS_PATH);
     // Hosts copy is already opened at this point.
     if(hostsFile.open(QIODevice::WriteOnly))
@@ -82,7 +86,7 @@ bool HostDirectorFileWriter::createHostsCopy(QFile &hostsFile)
     if(hostsFile.copy("temp/hosts_copy"))
     {
         // We open file to disallow user to delete it. Will be closed in eraseConfiguration.
-        hostsCopy.open(QIODevice::ReadOnly | QIODevice::ExistingOnly | QIODevice::Text);
+        hostsCopy.open(QIODevice::ReadOnly | QIODevice::ExistingOnly);
         return true;
     }
     HostDirectorErrorHandler::dispatchError(Error::HOSTS_COPY_FAILED);

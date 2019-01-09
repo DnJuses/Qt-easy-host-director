@@ -27,6 +27,7 @@ private slots:
     void browseFile();
     void startAction();
     void undoAction();
+    void passwordCheck();
 };
 
 #endif // HOSTDIRECTOR_H

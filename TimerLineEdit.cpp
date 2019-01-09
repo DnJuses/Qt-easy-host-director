@@ -9,9 +9,11 @@ TimerLineEdit::TimerLineEdit(QWidget *parent)
       hours(0),
       minutes(0),
       seconds(0),
+      timer(new QTimer(this)),
       fileWriter(new HostDirectorFileWriter(this))
 {
-
+    timer->setInterval(TIMER_INTERVAL);
+    QObject::connect(timer, &QTimer::timeout, this, &TimerLineEdit::updateTimer);
 }
 
 TimerLineEdit::~TimerLineEdit()
@@ -25,13 +27,14 @@ void TimerLineEdit::startTimer(quint8 h, quint8 m, quint8 s)
     minutes = m;
     seconds = s;
     this->setDisplayedTimerValues(hours, minutes, seconds);
-    QTimer::singleShot(TIMER_INTERVAL, this, &TimerLineEdit::updateTimer);
+    timer->start();
     emit timerStarted();
 }
 
 void TimerLineEdit::stopTimer()
 {
     this->setDisplayedTimerValues(0, 0, 0);
+    timer->stop();
     emit timerStopped();
 }
 
@@ -54,7 +57,6 @@ void TimerLineEdit::updateTimer()
     }
     seconds--;
     this->setDisplayedTimerValues(hours, minutes, seconds);
-    QTimer::singleShot(TIMER_INTERVAL, this, &TimerLineEdit::updateTimer);
 }
 
 void TimerLineEdit::setDisplayedTimerValues(quint8 h, quint8 m, quint8 s)
