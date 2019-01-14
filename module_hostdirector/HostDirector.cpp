@@ -26,6 +26,8 @@ HostDirector::HostDirector(QWidget *parent) :
 HostDirector::~HostDirector()
 {
     delete ui;
+    delete editor;
+    this->deleteLater();
 }
 void HostDirector::closeEvent(QCloseEvent *event)
 {

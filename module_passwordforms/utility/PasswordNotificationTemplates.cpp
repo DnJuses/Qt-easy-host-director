@@ -6,7 +6,7 @@ void PasswordNotificationTemplates::playTemplate(Template templateId)
 {
     QMessageBox notification;
     const QString title = tr("Password manager");
-    QString message = "";
+    QString message;
     QMessageBox::Icon stdIcon = QMessageBox::NoIcon;
     QPixmap customIcon;
     switch(templateId)
@@ -25,7 +25,7 @@ void PasswordNotificationTemplates::playTemplate(Template templateId)
         break;
         case Template::CREATED_SUCCESSFULLY:
             message = tr("Password created successfully!");
-            customIcon = QPixmap(":images/icons/tick.ico");
+            customIcon = QPixmap(":images/icons/tick.png");
         break;
     }
     notification.setWindowTitle(title);

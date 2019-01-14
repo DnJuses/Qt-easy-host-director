@@ -15,6 +15,11 @@ HostDirectorFileWriter::HostDirectorFileWriter(QObject *parent) : QObject(parent
     }
 }
 
+HostDirectorFileWriter::~HostDirectorFileWriter()
+{
+    this->deleteLater();
+}
+
 bool HostDirectorFileWriter::writeConfiguration(const QString &confPath)
 {
     QFile hostsFile(HostConstant::HOSTS_PATH);

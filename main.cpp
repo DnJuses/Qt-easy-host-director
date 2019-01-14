@@ -3,25 +3,16 @@
 #include "module_hostdirector/utility/HostDirectorErrorHandler.h"
 #include "module_passwordforms/confirmationform/PasswordConfirmationForm.h"
 #include "module_passwordforms/creationform/PasswordCreationForm.h"
-#include "module_editor/ConfigurationEditor.h"
 #include <QApplication>
 #include <QtCore>
 #include <QMessageBox>
 #include <QDebug>
 
-#ifndef QT_DEBUG
-    #define STD_TR_NAME ""
-    #define STD_QT_TR_NAME ""
-#else
-    #define STD_TR_NAME "hdir_"
-    #define STD_QT_TR_NAME "qt_"
-#endif
-
 bool singleApp()
 {
     QSystemSemaphore singleApp("<uniq id>", 1);
     singleApp.acquire();
-#ifndef Q_OS_WIN32 // Освободить память при аварийном закрытии программы в Linux
+#ifndef Q_OS_WIN32
     QSharedMemory unixFixLeak("<uniq id 2>");
     if(unixFixLeak.attach())
         unixFixLeak.detach();
@@ -45,21 +36,21 @@ bool singleApp()
 
 int main(int argc, char *argv[])
 {
-    if(singleApp())
-    {
-        HostDirectorErrorHandler::dispatchError(ErrorTypes::ErrorValue::APP_ALREADY_RUNNING);
-        return 0;
-    }
     QApplication app(argc, argv);
     QCoreApplication::setOrganizationName("Suvo softworks");
     QCoreApplication::setApplicationName("Host Director");
     QTranslator languageTranslator;
     QTranslator qtTranslator;
-    if(languageTranslator.load(STD_TR_NAME + QLocale::system().name(), "translations")
-    && qtTranslator.load(STD_QT_TR_NAME + QLocale::system().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
+    if(languageTranslator.load("hdir_" + QLocale::system().name(), "translations")
+    && qtTranslator.load("qt_" + QLocale::system().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
     {
          app.installTranslator(&languageTranslator);
          app.installTranslator(&qtTranslator);
+    }
+    if(singleApp())
+    {
+        HostDirectorErrorHandler::dispatchError(ErrorTypes::ErrorValue::APP_ALREADY_RUNNING);
+        return 0;
     }
     if(!AbstractPasswordForm::isPasswordExists())
     {

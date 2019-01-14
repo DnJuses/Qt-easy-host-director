@@ -9,6 +9,7 @@ class HostDirectorFileWriter : public QObject
     Q_OBJECT
 public:
     explicit HostDirectorFileWriter(QObject *parent = nullptr);
+    ~HostDirectorFileWriter();
     static bool isCopyExists();
     bool writeConfiguration(const QString &confPath); // Must be used in pair with eraseConfiguration();
     void writePermanentConfiguration(const QString &confPath);

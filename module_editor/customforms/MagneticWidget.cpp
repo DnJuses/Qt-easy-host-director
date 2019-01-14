@@ -7,7 +7,6 @@
 #define TITLE_HEIGHT 38
 #define DOWN_EDGE 3
 #define UPPER_EDGE 0
-#include <QDebug>
 
 MagneticWidget::MagneticWidget(const QWidget *magnetToWidget) :
     magnetizedWidget(magnetToWidget),

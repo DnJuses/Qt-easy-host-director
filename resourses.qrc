@@ -16,5 +16,6 @@
         <file>icons/floppy_35inch_blue.png</file>
         <file>icons/pencil_red.png</file>
         <file>icons/controls.png</file>
+        <file>icons/tick.png</file>
     </qresource>
 </RCC>
