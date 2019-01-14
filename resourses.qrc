@@ -1,5 +1,20 @@
 <RCC>
     <qresource prefix="/images">
         <file>icons/desktopicon.ico</file>
+        <file>icons/arrow_plain_red_S.png</file>
+        <file>icons/copy.png</file>
+        <file>icons/directory_open.png</file>
+        <file>icons/file_yellow_trashcan.png</file>
+        <file>icons/paste.png</file>
+        <file>icons/pencil_green.png</file>
+        <file>icons/redo_blue.png</file>
+        <file>icons/scissors.png</file>
+        <file>icons/trashcan.png</file>
+        <file>icons/undo_blue.png</file>
+        <file>icons/paste_arrow_red.png</file>
+        <file>icons/file_yellow_save.png</file>
+        <file>icons/floppy_35inch_blue.png</file>
+        <file>icons/pencil_red.png</file>
+        <file>icons/controls.png</file>
     </qresource>
 </RCC>

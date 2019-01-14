@@ -1,6 +1,6 @@
-#include "HostDirector.h"
-#include "HostDirectorConstants.h"
-#include "passforms/PasswordConfirmationForm.h"
+#include "module_hostdirector/HostDirector.h"
+#include "module_hostdirector/utility/HostDirectorConstants.h"
+#include "module_passwordforms/confirmationform/PasswordConfirmationForm.h"
 #include "ui_HostDirector.h"
 #include <QtEvents>
 #include <QFileDialog>
@@ -8,6 +8,7 @@
 HostDirector::HostDirector(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::HostDirector),
+    editor(new ConfigurationEditor(this)),
     tray(new HostDirectorTrayMenu(this)),
     tester(new HostDirectorTestModule(this)),
     fileWriter(new HostDirectorFileWriter(this))
@@ -18,6 +19,8 @@ HostDirector::HostDirector(QWidget *parent) :
     QObject::connect(ui->stopButton, &QPushButton::clicked, this, &HostDirector::passwordCheck);
     QObject::connect(ui->browseButton, &QPushButton::clicked, this, &HostDirector::browseFile);
     QObject::connect(ui->timerLine, &TimerLineEdit::timerStopped, this, &HostDirector::undoAction);
+    QObject::connect(ui->act_showEditor, &QAction::triggered, editor, &ConfigurationEditor::show);
+    QObject::connect(editor, &ConfigurationEditor::confReady, ui->pathLine, &QLineEdit::setText);
 }
 
 HostDirector::~HostDirector()
@@ -28,6 +31,15 @@ void HostDirector::closeEvent(QCloseEvent *event)
 {
     this->hide();
     event->ignore();
+}
+
+void HostDirector::moveEvent(QMoveEvent *event)
+{
+    if(editor->isMagnetic())
+    {
+        QPoint ceditPos = event->oldPos() - event->pos();
+        editor->move(editor->x() - ceditPos.x(), editor->y() - ceditPos.y());
+    }
 }
 
 void HostDirector::browseFile()

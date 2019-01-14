@@ -1,7 +1,7 @@
 #ifndef ABSTRACTPASSWORDFORM_H
 #define ABSTRACTPASSWORDFORM_H
-#include "HostDirectorConstants.h"
-#include "PasswordNotificationTemplates.h"
+#include "module_hostdirector/utility/HostDirectorConstants.h"
+#include "module_passwordforms/utility/PasswordNotificationTemplates.h"
 #include <QDialog>
 
 

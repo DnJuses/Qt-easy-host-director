@@ -1,7 +1,7 @@
 #ifndef PASSWORDRECREATIONFORM_H
 #define PASSWORDRECREATIONFORM_H
 
-#include "AbstractPasswordForm.h"
+#include "module_passwordforms/AbstractPasswordForm.h"
 
 namespace Ui {
 class PasswordRecreationForm;

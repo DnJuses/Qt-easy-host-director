@@ -1,4 +1,4 @@
-#include "PasswordRecreationForm.h"
+#include "module_passwordforms/recreationform/PasswordRecreationForm.h"
 #include "ui_PasswordRecreationForm.h"
 
 PasswordRecreationForm::PasswordRecreationForm(QWidget *parent) :

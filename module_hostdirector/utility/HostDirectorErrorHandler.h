@@ -1,7 +1,7 @@
 #ifndef HOSTDIRECTORERRORHANDLER_H
 #define HOSTDIRECTORERRORHANDLER_H
 
-#include "ErrorTypes.h"
+#include "module_hostdirector/utility/ErrorTypes.h"
 #include <QObject>
 #include <QMessageBox>
 

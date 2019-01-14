@@ -1,6 +1,6 @@
 #ifndef PASSWORDNOTIFICATIONTEMPLATES_H
 #define PASSWORDNOTIFICATIONTEMPLATES_H
-#include "PasswordTemplateTypes.h"
+#include "module_passwordforms/utility/PasswordTemplateTypes.h"
 #include <QObject>
 
 class PasswordNotificationTemplates : private QObject

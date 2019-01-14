@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ConfigurationEditor</class>
+ <widget class="MagneticWidget" name="ConfigurationEditor">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>246</width>
+    <height>248</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Configuration Editor</string>
+  </property>
+  <property name="locale">
+   <locale language="English" country="UnitedStates"/>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="topMargin">
+    <number>25</number>
+   </property>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <property name="spacing">
+      <number>3</number>
+     </property>
+     <property name="sizeConstraint">
+      <enum>QLayout::SetDefaultConstraint</enum>
+     </property>
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QToolButton" name="open">
+       <property name="toolTip">
+        <string>Open file (Ctrl + O)</string>
+       </property>
+       <property name="text">
+        <string notr="true">...</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../resourses.qrc">
+         <normaloff>:/images/icons/directory_open.png</normaloff>:/images/icons/directory_open.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>false</bool>
+       </property>
+       <property name="autoRaise">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="save">
+       <property name="toolTip">
+        <string>Save file (Ctrl + S)</string>
+       </property>
+       <property name="text">
+        <string notr="true">...</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../resourses.qrc">
+         <normaloff>:/images/icons/floppy_35inch_blue.png</normaloff>:/images/icons/floppy_35inch_blue.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="autoRaise">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="undo">
+       <property name="toolTip">
+        <string>Undo (Ctrl + Z)</string>
+       </property>
+       <property name="text">
+        <string notr="true">...</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../resourses.qrc">
+         <normaloff>:/images/icons/undo_blue.png</normaloff>:/images/icons/undo_blue.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="autoRaise">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="redo">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="toolTip">
+        <string>Redo (Ctrl + Y)</string>
+       </property>
+       <property name="text">
+        <string notr="true">...</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../resourses.qrc">
+         <normaloff>:/images/icons/redo_blue.png</normaloff>:/images/icons/redo_blue.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="autoRaise">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="insertLocal">
+       <property name="toolTip">
+        <string>Places &quot;127.0.0.1&quot; into text field (Shift + V)</string>
+       </property>
+       <property name="text">
+        <string notr="true">...</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../resourses.qrc">
+         <normaloff>:/images/icons/arrow_plain_red_S.png</normaloff>:/images/icons/arrow_plain_red_S.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="autoRaise">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="insertLocalClipboard">
+       <property name="toolTip">
+        <string>Places &quot;127.0.0.1&quot; + clipboard into text field (Alt + V)</string>
+       </property>
+       <property name="toolTipDuration">
+        <number>-1</number>
+       </property>
+       <property name="text">
+        <string notr="true">...</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../resourses.qrc">
+         <normaloff>:/images/icons/paste_arrow_red.png</normaloff>:/images/icons/paste_arrow_red.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>24</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="toolButtonStyle">
+        <enum>Qt::ToolButtonIconOnly</enum>
+       </property>
+       <property name="autoRaise">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QTextEdit" name="confEdit"/>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="useAsConf">
+       <property name="text">
+        <string>Use as configuration</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>270</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_settings">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="act_open"/>
+    <addaction name="separator"/>
+    <addaction name="act_save"/>
+    <addaction name="act_saveAs"/>
+    <addaction name="separator"/>
+    <addaction name="act_close"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <addaction name="act_undo"/>
+    <addaction name="act_redo"/>
+    <addaction name="separator"/>
+    <addaction name="act_cut"/>
+    <addaction name="act_copy"/>
+    <addaction name="act_paste"/>
+    <addaction name="separator"/>
+    <addaction name="act_clear"/>
+   </widget>
+   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+    <addaction name="act_insertLh"/>
+    <addaction name="act_insertLhClp"/>
+   </widget>
+   <addaction name="menu_settings"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuTools"/>
+  </widget>
+  <action name="act_open">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../resourses.qrc">
+     <normaloff>:/images/icons/directory_open.png</normaloff>:/images/icons/directory_open.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="act_save">
+   <property name="icon">
+    <iconset resource="../resourses.qrc">
+     <normaloff>:/images/icons/floppy_35inch_blue.png</normaloff>:/images/icons/floppy_35inch_blue.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="act_saveAs">
+   <property name="icon">
+    <iconset resource="../resourses.qrc">
+     <normaloff>:/images/icons/file_yellow_save.png</normaloff>:/images/icons/file_yellow_save.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save As</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+S</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::WindowShortcut</enum>
+   </property>
+  </action>
+  <action name="act_close">
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </action>
+  <action name="act_undo">
+   <property name="icon">
+    <iconset resource="../resourses.qrc">
+     <normaloff>:/images/icons/undo_blue.png</normaloff>:/images/icons/undo_blue.png</iconset>
+   </property>
+   <property name="text">
+    <string>Undo</string>
+   </property>
+   <property name="toolTip">
+    <string>Undo</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Z</string>
+   </property>
+  </action>
+  <action name="act_redo">
+   <property name="icon">
+    <iconset resource="../resourses.qrc">
+     <normaloff>:/images/icons/redo_blue.png</normaloff>:/images/icons/redo_blue.png</iconset>
+   </property>
+   <property name="text">
+    <string>Redo</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Y</string>
+   </property>
+  </action>
+  <action name="act_cut">
+   <property name="icon">
+    <iconset resource="../resourses.qrc">
+     <normaloff>:/images/icons/scissors.png</normaloff>:/images/icons/scissors.png</iconset>
+   </property>
+   <property name="text">
+    <string>Cut</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+X</string>
+   </property>
+  </action>
+  <action name="act_copy">
+   <property name="icon">
+    <iconset resource="../resourses.qrc">
+     <normaloff>:/images/icons/copy.png</normaloff>:/images/icons/copy.png</iconset>
+   </property>
+   <property name="text">
+    <string>Copy</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+  </action>
+  <action name="act_paste">
+   <property name="icon">
+    <iconset resource="../resourses.qrc">
+     <normaloff>:/images/icons/paste.png</normaloff>:/images/icons/paste.png</iconset>
+   </property>
+   <property name="text">
+    <string>Paste</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+V</string>
+   </property>
+  </action>
+  <action name="act_clear">
+   <property name="icon">
+    <iconset resource="../resourses.qrc">
+     <normaloff>:/images/icons/file_yellow_trashcan.png</normaloff>:/images/icons/file_yellow_trashcan.png</iconset>
+   </property>
+   <property name="text">
+    <string>Clear</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+B</string>
+   </property>
+  </action>
+  <action name="act_insertLh">
+   <property name="icon">
+    <iconset resource="../resourses.qrc">
+     <normaloff>:/images/icons/arrow_plain_red_S.png</normaloff>:/images/icons/arrow_plain_red_S.png</iconset>
+   </property>
+   <property name="text">
+    <string>Paste localhost (127.0.0.1)</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+V</string>
+   </property>
+  </action>
+  <action name="act_insertLhClp">
+   <property name="icon">
+    <iconset resource="../resourses.qrc">
+     <normaloff>:/images/icons/paste_arrow_red.png</normaloff>:/images/icons/paste_arrow_red.png</iconset>
+   </property>
+   <property name="text">
+    <string>Localhost + clipboard</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+V</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>MagneticWidget</class>
+   <extends>QWidget</extends>
+   <header>module_editor/customforms/MagneticWidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../resourses.qrc"/>
+ </resources>
+ <connections/>
+</ui>

@@ -1,4 +1,4 @@
-#include "PasswordNotificationTemplates.h"
+#include "module_passwordforms/utility/PasswordNotificationTemplates.h"
 #include <QMessageBox>
 #include <QPixmap>
 typedef PasswordTemplate::Id Template;

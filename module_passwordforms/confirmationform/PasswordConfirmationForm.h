@@ -1,7 +1,7 @@
 #ifndef PASSWORDCONFIRMATIONFORM_H
 #define PASSWORDCONFIRMATIONFORM_H
 
-#include "AbstractPasswordForm.h"
+#include "module_passwordforms/AbstractPasswordForm.h"
 #include <QSettings>
 
 namespace Ui {

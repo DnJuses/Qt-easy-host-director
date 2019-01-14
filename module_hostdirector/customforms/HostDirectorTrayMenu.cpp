@@ -1,7 +1,7 @@
-#include "passforms/PasswordRecreationForm.h"
-#include "passforms/PasswordCreationForm.h"
-#include "passforms/PasswordConfirmationForm.h"
-#include "HostDirectorTrayMenu.h"
+#include "module_passwordforms/recreationform/PasswordRecreationForm.h"
+#include "module_passwordforms/creationform/PasswordCreationForm.h"
+#include "module_passwordforms/confirmationform/PasswordConfirmationForm.h"
+#include "module_hostdirector/customforms/HostDirectorTrayMenu.h"
 #include <QCommonStyle>
 #include <QApplication>
 

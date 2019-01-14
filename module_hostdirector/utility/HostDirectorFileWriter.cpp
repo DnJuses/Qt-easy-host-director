@@ -58,12 +58,24 @@ void HostDirectorFileWriter::writePermanentConfiguration(const QString &confPath
 
 bool HostDirectorFileWriter::eraseConfiguration()
 {
-    if(isCopyExists() && !hostsCopy.isOpen())
-    {
-        hostsCopy.open(QIODevice::ReadOnly | QIODevice::ExistingOnly);
-    }
     QFile hostsFile(HostConstant::HOSTS_PATH);
     // Hosts copy is already opened at this point.
+    if(hostsFile.open(QIODevice::WriteOnly))
+    {
+        if(hostsFile.write(hostsCopy.readAll()) >= 0)
+        {
+            hostsCopy.remove();
+            return true;
+        }
+    }
+    HostDirectorErrorHandler::dispatchError(Error::HOSTS_CONF_ERASE_FAILED);
+    return false;
+}
+
+bool HostDirectorFileWriter::eraseConfigurationUnpair()
+{
+    QFile hostsFile(HostConstant::HOSTS_PATH);
+    hostsCopy.open(QIODevice::ReadOnly | QIODevice::ExistingOnly);
     if(hostsFile.open(QIODevice::WriteOnly))
     {
         if(hostsFile.write(hostsCopy.readAll()) >= 0)

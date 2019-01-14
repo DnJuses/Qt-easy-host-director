@@ -1,5 +1,5 @@
-#include "TimerLineEdit.h"
-#include "HostDirectorFileWriter.h"
+#include "module_hostdirector/customforms/TimerLineEdit.h"
+#include "module_hostdirector/utility/HostDirectorFileWriter.h"
 #include <QTimer>
 
 #define TIMER_INTERVAL 1 * 1000

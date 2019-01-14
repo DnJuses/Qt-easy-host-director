@@ -26,39 +26,44 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        HostDirector.cpp \
-        HostDirectorTestModule.cpp \
-        HostDirectorErrorHandler.cpp \
-        HostDirectorFileWriter.cpp \
-        TimerLineEdit.cpp \
-        HostDirectorTrayMenu.cpp \
-        passforms/AbstractPasswordForm.cpp \
-        passforms/PasswordConfirmationForm.cpp \
-    passforms/PasswordRecreationForm.cpp \
-    passforms/PasswordCreationForm.cpp \
-    passforms/PasswordNotificationTemplates.cpp
+        module_hostdirector/HostDirector.cpp \
+        module_hostdirector/customforms/TimerLineEdit.cpp \
+        module_hostdirector/customforms/HostDirectorTrayMenu.cpp \
+        module_hostdirector/utility/HostDirectorTestModule.cpp \
+        module_hostdirector/utility/HostDirectorErrorHandler.cpp \
+        module_hostdirector/utility/HostDirectorFileWriter.cpp \
+        module_passwordforms/AbstractPasswordForm.cpp \
+        module_passwordforms/confirmationform/PasswordConfirmationForm.cpp \
+        module_passwordforms/creationform/PasswordCreationForm.cpp \
+        module_passwordforms/recreationform/PasswordRecreationForm.cpp \
+        module_passwordforms/utility/PasswordNotificationTemplates.cpp \
+        module_editor/customforms/MagneticWidget.cpp \
+        module_editor/ConfigurationEditor.cpp
 
 HEADERS += \
-        HostDirector.h \
-        ErrorTypes.h \
-        HostDirectorTestModule.h \
-        HostDirectorErrorHandler.h \
-        HostDirectorFileWriter.h \
-        HostDirectorConstants.h \
-        TimerLineEdit.h \
-        HostDirectorTrayMenu.h \
-        passforms/AbstractPasswordForm.h \
-        passforms/PasswordConfirmationForm.h \
-    passforms/PasswordRecreationForm.h \
-    passforms/PasswordCreationForm.h \
-    passforms/PasswordNotificationTemplates.h \
-    passforms/PasswordTemplateTypes.h
+        module_hostdirector/HostDirector.h \
+        module_hostdirector/customforms/TimerLineEdit.h \
+        module_hostdirector/customforms/HostDirectorTrayMenu.h \
+        module_hostdirector/utility/ErrorTypes.h \
+        module_hostdirector/utility/HostDirectorTestModule.h \
+        module_hostdirector/utility/HostDirectorErrorHandler.h \
+        module_hostdirector/utility/HostDirectorFileWriter.h \
+        module_hostdirector/utility/HostDirectorConstants.h \
+        module_passwordforms/AbstractPasswordForm.h \
+        module_passwordforms/confirmationform/PasswordConfirmationForm.h \
+        module_passwordforms/creationform/PasswordCreationForm.h \
+        module_passwordforms/recreationform/PasswordRecreationForm.h \
+        module_passwordforms/utility/PasswordNotificationTemplates.h \
+        module_passwordforms/utility/PasswordTemplateTypes.h \
+        module_editor/customforms/MagneticWidget.h \
+        module_editor/ConfigurationEditor.h
 
 FORMS += \
-        HostDirector.ui \
-        passforms/PasswordConfirmationForm.ui \
-    passforms/PasswordRecreationForm.ui \
-    passforms/PasswordCreationForm.ui
+        module_hostdirector/HostDirector.ui \
+        module_passwordforms/confirmationform/PasswordConfirmationForm.ui \
+        module_passwordforms/creationform/PasswordCreationForm.ui \
+        module_passwordforms/recreationform/PasswordRecreationForm.ui \
+        module_editor/ConfigurationEditor.ui
 
 DISTFILES += \
         manifests/adminmanifest.rc \

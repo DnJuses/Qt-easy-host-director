@@ -333,14 +333,38 @@
     </property>
     <addaction name="act_permchange"/>
    </widget>
+   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+    <addaction name="act_showEditor"/>
+   </widget>
+   <addaction name="menuTools"/>
    <addaction name="menu_settings"/>
   </widget>
   <action name="act_permchange">
    <property name="checkable">
     <bool>true</bool>
    </property>
+   <property name="icon">
+    <iconset resource="../resourses.qrc">
+     <normaloff>:/images/icons/pencil_red.png</normaloff>
+     <activeon>:/images/icons/pencil_green.png</activeon>:/images/icons/pencil_red.png</iconset>
+   </property>
    <property name="text">
     <string>Permanent change</string>
+   </property>
+  </action>
+  <action name="act_showEditor">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../resourses.qrc">
+     <normaloff>:/images/icons/controls.png</normaloff>:/images/icons/controls.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open configuration editor</string>
    </property>
   </action>
  </widget>
@@ -349,9 +373,11 @@
   <customwidget>
    <class>TimerLineEdit</class>
    <extends>QLineEdit</extends>
-   <header>TimerLineEdit.h</header>
+   <header>module_hostdirector/customforms/TimerLineEdit.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="../resourses.qrc"/>
+ </resources>
  <connections/>
 </ui>

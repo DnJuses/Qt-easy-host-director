@@ -3,7 +3,7 @@
 
 #include <QLineEdit>
 #include <QTimer>
-#include "HostDirectorFileWriter.h"
+#include "module_hostdirector/utility/HostDirectorFileWriter.h"
 
 class TimerLineEdit : public QLineEdit
 {
