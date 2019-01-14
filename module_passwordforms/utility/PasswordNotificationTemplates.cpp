@@ -5,7 +5,7 @@ typedef PasswordTemplate::Id Template;
 void PasswordNotificationTemplates::playTemplate(Template templateId)
 {
     QMessageBox notification;
-    const QString title = tr("Password Manager");
+    const QString title = tr("Password manager");
     QString message = "";
     QMessageBox::Icon stdIcon = QMessageBox::NoIcon;
     QPixmap customIcon;
@@ -20,11 +20,11 @@ void PasswordNotificationTemplates::playTemplate(Template templateId)
             stdIcon = QMessageBox::Critical;
         break;
         case Template::EMPTY_PASSWORDS:
-            message = tr("Password lines is empty. No password will be used. You can change it later by clicking 'Change password' action in tray-menu");
+            message = tr("Password lines are empty. Password disabled. You can change it later by clicking 'Change password' action in tray-menu.");
             stdIcon = QMessageBox::Information;
         break;
         case Template::CREATED_SUCCESSFULLY:
-            message = tr("Password created successfully");
+            message = tr("Password created successfully!");
             customIcon = QPixmap(":images/icons/tick.ico");
         break;
     }

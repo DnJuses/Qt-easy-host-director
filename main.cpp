@@ -9,7 +9,7 @@
 #include <QMessageBox>
 #include <QDebug>
 
-#ifdef QT_DEBUG
+#ifndef QT_DEBUG
     #define STD_TR_NAME ""
     #define STD_QT_TR_NAME ""
 #else
@@ -55,7 +55,6 @@ int main(int argc, char *argv[])
     QCoreApplication::setApplicationName("Host Director");
     QTranslator languageTranslator;
     QTranslator qtTranslator;
-    HostDirector w;
     if(languageTranslator.load(STD_TR_NAME + QLocale::system().name(), "translations")
     && qtTranslator.load(STD_QT_TR_NAME + QLocale::system().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
     {
@@ -66,7 +65,7 @@ int main(int argc, char *argv[])
     {
         QMessageBox::StandardButton confirm;
         confirm = QMessageBox::question(nullptr,
-                                        QApplication::tr("Password Manager"),
+                                        QApplication::tr("Password manager"),
                                         QApplication::tr("It seems like you don't have any passwords with you. Want to create one?"),
                                         QMessageBox::Yes | QMessageBox::No,
                                         QMessageBox::Yes);
@@ -80,7 +79,7 @@ int main(int argc, char *argv[])
     {
         QMessageBox::StandardButton confirm;
         confirm = QMessageBox::question(nullptr,
-                                        QApplication::tr("Host Director"),
+                                        QApplication::tr("Host director"),
                                         QApplication::tr("The application was closed in wrong way and changes still in effect. To undo them, press 'Ok' and type in your password."),
                                         QMessageBox::Yes | QMessageBox::No,
                                         QMessageBox::Yes);
@@ -101,6 +100,7 @@ int main(int argc, char *argv[])
             }
         }
     }
+    HostDirector w;
     w.show();
     return app.exec();
 }

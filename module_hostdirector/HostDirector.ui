@@ -25,7 +25,7 @@
    <enum>Qt::DefaultContextMenu</enum>
   </property>
   <property name="windowTitle">
-   <string notr="true">Host Director</string>
+   <string notr="true">Host director</string>
   </property>
   <property name="locale">
    <locale language="English" country="UnitedStates"/>
@@ -246,7 +246,7 @@
          <number>1024</number>
         </property>
         <property name="placeholderText">
-         <string>Path to the configurations file</string>
+         <string>Path to the configurations file...</string>
         </property>
        </widget>
       </item>

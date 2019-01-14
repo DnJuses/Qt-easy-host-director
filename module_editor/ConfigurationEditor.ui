@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Configuration Editor</string>
+   <string>Configuration editor</string>
   </property>
   <property name="locale">
    <locale language="English" country="UnitedStates"/>
@@ -132,7 +132,7 @@
      <item>
       <widget class="QToolButton" name="insertLocal">
        <property name="toolTip">
-        <string>Places &quot;127.0.0.1&quot; into text field (Shift + V)</string>
+        <string>Inserts &quot;127.0.0.1&quot; into text field (Shift + V)</string>
        </property>
        <property name="text">
         <string notr="true">...</string>
@@ -155,7 +155,7 @@
      <item>
       <widget class="QToolButton" name="insertLocalClipboard">
        <property name="toolTip">
-        <string>Places &quot;127.0.0.1&quot; + clipboard into text field (Alt + V)</string>
+        <string>Inserts &quot;127.0.0.1&quot; + clipboard into text field (Alt + V)</string>
        </property>
        <property name="toolTipDuration">
         <number>-1</number>
@@ -280,7 +280,7 @@
     <string>Open</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+O</string>
+    <string notr="true">Ctrl+O</string>
    </property>
   </action>
   <action name="act_save">
@@ -292,7 +292,7 @@
     <string>Save</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+S</string>
+    <string notr="true">Ctrl+S</string>
    </property>
   </action>
   <action name="act_saveAs">
@@ -301,10 +301,10 @@
      <normaloff>:/images/icons/file_yellow_save.png</normaloff>:/images/icons/file_yellow_save.png</iconset>
    </property>
    <property name="text">
-    <string>Save As</string>
+    <string>Save as...</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Alt+S</string>
+    <string notr="true">Ctrl+Alt+S</string>
    </property>
    <property name="shortcutContext">
     <enum>Qt::WindowShortcut</enum>
@@ -313,6 +313,9 @@
   <action name="act_close">
    <property name="text">
     <string>Close</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true"/>
    </property>
   </action>
   <action name="act_undo">
@@ -327,7 +330,7 @@
     <string>Undo</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Z</string>
+    <string notr="true">Ctrl+Z</string>
    </property>
   </action>
   <action name="act_redo">
@@ -339,7 +342,7 @@
     <string>Redo</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Y</string>
+    <string notr="true">Ctrl+Y</string>
    </property>
   </action>
   <action name="act_cut">
@@ -351,7 +354,7 @@
     <string>Cut</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+X</string>
+    <string notr="true">Ctrl+X</string>
    </property>
   </action>
   <action name="act_copy">
@@ -363,7 +366,7 @@
     <string>Copy</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+C</string>
+    <string notr="true">Ctrl+C</string>
    </property>
   </action>
   <action name="act_paste">
@@ -375,7 +378,7 @@
     <string>Paste</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+V</string>
+    <string notr="true">Ctrl+V</string>
    </property>
   </action>
   <action name="act_clear">
@@ -387,7 +390,7 @@
     <string>Clear</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+B</string>
+    <string notr="true">Ctrl+B</string>
    </property>
   </action>
   <action name="act_insertLh">
@@ -396,10 +399,10 @@
      <normaloff>:/images/icons/arrow_plain_red_S.png</normaloff>:/images/icons/arrow_plain_red_S.png</iconset>
    </property>
    <property name="text">
-    <string>Paste localhost (127.0.0.1)</string>
+    <string>Insert localhost (127.0.0.1)</string>
    </property>
    <property name="shortcut">
-    <string>Shift+V</string>
+    <string notr="true">Shift+V</string>
    </property>
   </action>
   <action name="act_insertLhClp">
@@ -408,10 +411,10 @@
      <normaloff>:/images/icons/paste_arrow_red.png</normaloff>:/images/icons/paste_arrow_red.png</iconset>
    </property>
    <property name="text">
-    <string>Localhost + clipboard</string>
+    <string>Insert localhost + clipboard</string>
    </property>
    <property name="shortcut">
-    <string>Alt+V</string>
+    <string notr="true">Alt+V</string>
    </property>
   </action>
  </widget>

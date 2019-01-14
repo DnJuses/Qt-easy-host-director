@@ -2,7 +2,6 @@
 #define PASSWORDCONFIRMATIONFORM_H
 
 #include "module_passwordforms/AbstractPasswordForm.h"
-#include <QSettings>
 
 namespace Ui {
 class PasswordConfirmationForm;

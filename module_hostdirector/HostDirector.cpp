@@ -44,7 +44,7 @@ void HostDirector::moveEvent(QMoveEvent *event)
 
 void HostDirector::browseFile()
 {
-    ui->pathLine->setText(QFileDialog::getOpenFileName(nullptr, nullptr, nullptr, tr("Any (*.*);;Host director configuration file (*.hdcf);;Text file (*.txt)")));
+    ui->pathLine->setText(QFileDialog::getOpenFileName(nullptr, nullptr, nullptr, tr("Text document (*.txt);;Host director configuration file (*.hdcf)")));
 }
 
 void HostDirector::startAction()
@@ -67,7 +67,7 @@ void HostDirector::startAction()
         {
             return;
         }
-        tray->showMessage(tr("Host Director"), tr("Timer started"), QSystemTrayIcon::Information);
+        tray->showMessage(tr("Host director"), tr("Timer started"), QSystemTrayIcon::Information);
         ui->timerLine->startTimer(ui->intbox_hours->value(), ui->intbox_minutes->value(), ui->intbox_seconds->value());
         ui->startButton->hide();
         ui->stopButton->show();
@@ -76,7 +76,7 @@ void HostDirector::startAction()
 
 void HostDirector::undoAction()
 {
-    tray->showMessage(tr("Host Director"), tr("Timer expired"), QSystemTrayIcon::Information);
+    tray->showMessage(tr("Host director"), tr("Timer expired"), QSystemTrayIcon::Information);
     fileWriter->eraseConfiguration();
     ui->startButton->show();
     ui->stopButton->hide();

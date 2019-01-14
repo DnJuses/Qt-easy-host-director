@@ -69,7 +69,7 @@ void ConfigurationEditor::openFile()
         return;
     }
     QMessageBox cantOpen;
-    cantOpen.setWindowTitle(tr("Configuration Editor"));
+    cantOpen.setWindowTitle(tr("Configuration editor"));
     cantOpen.setText(tr("Unable to open file."));
     cantOpen.setIcon(QMessageBox::Critical);
     cantOpen.exec();
@@ -81,8 +81,8 @@ void ConfigurationEditor::saveFile()
     {
         QMessageBox::StandardButton conf;
         conf = QMessageBox::question(nullptr,
-                                     tr("Configuration Editor"),
-                                     tr("Can't determine save file. Save to standard path? ('cfgs' directory)"),
+                                     tr("Configuration editor"),
+                                     tr("Unable to determine save file. Save to standard path? (standard path - 'cfgs')"),
                                      QMessageBox::Yes | QMessageBox::No,
                                      QMessageBox::Yes);
         if(conf == QMessageBox::Yes)
@@ -103,8 +103,8 @@ void ConfigurationEditor::saveFile()
         return;
     }
     QMessageBox cantSave;
-    cantSave.setWindowTitle(tr("Configuration Editor"));
-    cantSave.setText(tr("Unable to save file"));
+    cantSave.setWindowTitle(tr("Configuration editor"));
+    cantSave.setText(tr("Unable to save file."));
     cantSave.setIcon(QMessageBox::Critical);
     cantSave.exec();
 }
@@ -122,8 +122,8 @@ void ConfigurationEditor::saveAsFile()
         return;
     }
     QMessageBox cantSave;
-    cantSave.setWindowTitle(tr("Configuration Editor"));
-    cantSave.setText(tr("Unable to save file"));
+    cantSave.setWindowTitle(tr("Configuration editor"));
+    cantSave.setText(tr("Unable to save file."));
     cantSave.setIcon(QMessageBox::Critical);
     cantSave.exec();
 }
