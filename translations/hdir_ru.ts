@@ -33,14 +33,22 @@
         <translation>Восстановить (Ctrl + Y)</translation>
     </message>
     <message>
-        <location filename="../module_editor/ConfigurationEditor.ui" line="135"/>
         <source>Inserts &quot;127.0.0.1&quot; into text field (Shift + V)</source>
-        <translation>Вставляет &quot;127.0.0.1&quot; в поле для ввода (Shift + V)</translation>
+        <translation type="vanished">Вставляет &quot;127.0.0.1&quot; в поле для ввода (Shift + V)</translation>
+    </message>
+    <message>
+        <source>Inserts &quot;127.0.0.1&quot; + clipboard into text field (Alt + V)</source>
+        <translation type="vanished">Вставляет &quot;127.0.0.1&quot; + буфер обмена  в поле для ввода (Shift + V)</translation>
+    </message>
+    <message>
+        <location filename="../module_editor/ConfigurationEditor.ui" line="135"/>
+        <source>Inserts &quot;127.0.0.1&quot; into text field (Ctrl + L)</source>
+        <translation>Вставляет &quot;127.0.0.1&quot; в поле для ввода (Ctrl + L)</translation>
     </message>
     <message>
         <location filename="../module_editor/ConfigurationEditor.ui" line="158"/>
-        <source>Inserts &quot;127.0.0.1&quot; + clipboard into text field (Alt + V)</source>
-        <translation>Вставляет &quot;127.0.0.1&quot; + буфер обмена  в поле для ввода (Shift + V)</translation>
+        <source>Inserts &quot;127.0.0.1&quot; + clipboard into text field (Ctrl + Shift + L)</source>
+        <translation>Вставляет &quot;127.0.0.1&quot; + буфер обмена  в поле для ввода (Ctrl + Shift + L)</translation>
     </message>
     <message>
         <location filename="../module_editor/ConfigurationEditor.ui" line="220"/>
@@ -208,23 +216,23 @@
         <translation>Открыть редактор конфигураций</translation>
     </message>
     <message>
-        <location filename="../module_hostdirector/HostDirector.cpp" line="47"/>
+        <location filename="../module_hostdirector/HostDirector.cpp" line="49"/>
         <source>Text document (*.txt);;Host director configuration file (*.hdcf)</source>
         <translation>Текстовый документ (*.txt);;Файл конфигурации приложения (*.hdcf)</translation>
     </message>
     <message>
-        <location filename="../module_hostdirector/HostDirector.cpp" line="70"/>
+        <location filename="../module_hostdirector/HostDirector.cpp" line="72"/>
         <source>Timer started</source>
         <translation>Отсчет таймера начался</translation>
     </message>
     <message>
-        <location filename="../module_hostdirector/HostDirector.cpp" line="79"/>
+        <location filename="../module_hostdirector/HostDirector.cpp" line="81"/>
         <source>Timer expired</source>
         <translation>Отсчет таймера завершился</translation>
     </message>
     <message>
-        <location filename="../module_hostdirector/HostDirector.cpp" line="70"/>
-        <location filename="../module_hostdirector/HostDirector.cpp" line="79"/>
+        <location filename="../module_hostdirector/HostDirector.cpp" line="72"/>
+        <location filename="../module_hostdirector/HostDirector.cpp" line="81"/>
         <source>Host director</source>
         <translation></translation>
     </message>
@@ -402,22 +410,22 @@
 <context>
     <name>QApplication</name>
     <message>
-        <location filename="../main.cpp" line="69"/>
+        <location filename="../main.cpp" line="58"/>
         <source>Password manager</source>
         <translation>Менеджер паролей</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="70"/>
+        <location filename="../main.cpp" line="59"/>
         <source>It seems like you don&apos;t have any passwords with you. Want to create one?</source>
         <translation>Видимо, вы не имеете пароля. Хотите создать?</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="83"/>
+        <location filename="../main.cpp" line="72"/>
         <source>Host director</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="84"/>
+        <location filename="../main.cpp" line="73"/>
         <source>The application was closed in wrong way and changes still in effect. To undo them, press &apos;Ok&apos; and type in your password.</source>
         <translation>Программа была закрыта неправильно и изменения продолжают действовать. Чтобы отменить их, нажмите &apos;Ок&apos; и введите ваш пароль.</translation>
     </message>

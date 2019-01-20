@@ -6,10 +6,20 @@
 #include <QApplication>
 #include <QtCore>
 #include <QMessageBox>
-#include <QDebug>
 
-bool singleApp()
+int main(int argc, char *argv[])
 {
+    QApplication app(argc, argv);
+    QCoreApplication::setOrganizationName("Suvo softworks");
+    QCoreApplication::setApplicationName("Host Director");
+    QTranslator languageTranslator;
+    QTranslator qtTranslator;
+    if(languageTranslator.load("hdir_" + QLocale::system().name(), "translations")
+    && qtTranslator.load("qt_" + QLocale::system().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
+    {
+         app.installTranslator(&languageTranslator);
+         app.installTranslator(&qtTranslator);
+    }
     QSystemSemaphore singleApp("<uniq id>", 1);
     singleApp.acquire();
 #ifndef Q_OS_WIN32
@@ -29,25 +39,8 @@ bool singleApp()
         AppSM.create(1);
         appIsRunning = false;
     }
-
     singleApp.release();
-    return appIsRunning;
-}
-
-int main(int argc, char *argv[])
-{
-    QApplication app(argc, argv);
-    QCoreApplication::setOrganizationName("Suvo softworks");
-    QCoreApplication::setApplicationName("Host Director");
-    QTranslator languageTranslator;
-    QTranslator qtTranslator;
-    if(languageTranslator.load("hdir_" + QLocale::system().name(), "translations")
-    && qtTranslator.load("qt_" + QLocale::system().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
-    {
-         app.installTranslator(&languageTranslator);
-         app.installTranslator(&qtTranslator);
-    }
-    if(singleApp())
+    if(appIsRunning)
     {
         HostDirectorErrorHandler::dispatchError(ErrorTypes::ErrorValue::APP_ALREADY_RUNNING);
         return 0;

@@ -132,7 +132,7 @@
      <item>
       <widget class="QToolButton" name="insertLocal">
        <property name="toolTip">
-        <string>Inserts &quot;127.0.0.1&quot; into text field (Shift + V)</string>
+        <string>Inserts &quot;127.0.0.1&quot; into text field (Ctrl + L)</string>
        </property>
        <property name="text">
         <string notr="true">...</string>
@@ -155,7 +155,7 @@
      <item>
       <widget class="QToolButton" name="insertLocalClipboard">
        <property name="toolTip">
-        <string>Inserts &quot;127.0.0.1&quot; + clipboard into text field (Alt + V)</string>
+        <string>Inserts &quot;127.0.0.1&quot; + clipboard into text field (Ctrl + Shift + L)</string>
        </property>
        <property name="toolTipDuration">
         <number>-1</number>
@@ -390,7 +390,7 @@
     <string>Clear</string>
    </property>
    <property name="shortcut">
-    <string notr="true">Ctrl+B</string>
+    <string notr="true"/>
    </property>
   </action>
   <action name="act_insertLh">
@@ -402,7 +402,7 @@
     <string>Insert localhost (127.0.0.1)</string>
    </property>
    <property name="shortcut">
-    <string notr="true">Shift+V</string>
+    <string notr="true">Ctrl+L</string>
    </property>
   </action>
   <action name="act_insertLhClp">
@@ -414,7 +414,7 @@
     <string>Insert localhost + clipboard</string>
    </property>
    <property name="shortcut">
-    <string notr="true">Alt+V</string>
+    <string notr="true">Ctrl+Shift+L</string>
    </property>
   </action>
  </widget>

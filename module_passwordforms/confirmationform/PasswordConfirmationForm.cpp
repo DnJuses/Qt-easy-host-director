@@ -1,6 +1,5 @@
 #include "module_passwordforms/confirmationform/PasswordConfirmationForm.h"
 #include "ui_PasswordConfirmationForm.h"
-#include <QDebug>
 #include <QMessageBox>
 #include <QSettings>
 
